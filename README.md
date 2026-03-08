@@ -17,6 +17,8 @@ mac/linux
 windows
 ```
 .\run.ps1
+
+or for david : powershell -ExecutionPolicy Bypass -File .\run.px1
 ```
 #### First time running API:
 - Must have python installed
