@@ -12,6 +12,7 @@ from passlib.context import CryptContext
 from pydantic import BaseModel
 from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
+from typing import Optional
 load_dotenv()
 
 # --------------------
@@ -87,7 +88,7 @@ def create_token(username: str) -> str:
     }
     return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
 
-def require_token(authorization: str | None) -> str:
+def require_token(authorization: Optional[str]) -> str:
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401, detail="Missing token")
 
